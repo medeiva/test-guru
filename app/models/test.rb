@@ -5,7 +5,6 @@ class Test < ApplicationRecord
     Category.find_by(title: category_title)
     Test.joins('JOIN categories ON tests.category_id = categories.id')
         .where(categories: { title: 'Programm', })
-        .order('title DESC')
-        .pluck(:title)
+        .order('title DESC').pluck(:title)
   end
 end
